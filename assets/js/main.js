@@ -5,8 +5,8 @@ var scoreDisplay = document.getElementById("scoreDisplay");
 var lastClickDisplay = document.getElementById("lastClick");
 
 function displaySnails() {
-	scoreDisplay.innerHTML = snails;
-	lastClickDisplay.innerHTML = clickValue;
+	scoreDisplay.innerHTML = snails + " snails";
+	lastClickDisplay.innerHTML = clickValue + " snails per click";
 	console.log(snails);
 }
 
