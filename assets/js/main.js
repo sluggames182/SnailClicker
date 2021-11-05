@@ -3,6 +3,7 @@ var clickValue = 1;
 var autoClickers = 0;
 var scoreDisplay = document.getElementById("scoreDisplay");
 var lastClickDisplay = document.getElementById("lastClick");
+var buyHowMany = 1;
 
 function displaySnails() {
 	scoreDisplay.innerHTML = snails + " snails";
@@ -16,9 +17,11 @@ function addSnails() {
 }
 
 function addAutoCliker() {
-	snails -= 100;
-	autoClickers ++;
+	let toTake = buyHowMany * 100;
+	snails -= toTake;
+	autoClickers += buyHowMany;
 	let toAdd = autoClickers * clickValue;
+	displaySnails()
 	setInterval(function(){ 
 		snails += toAdd;
 		displaySnails();
@@ -26,6 +29,8 @@ function addAutoCliker() {
 }
 
 function increaseClickValue() {
-	snails -= 100;
-	clickValue ++;
+	let toTake = buyHowMany * 100;
+	snails -= toTake;
+	clickValue += buyHowMany;
+	displaySnails()
 }
