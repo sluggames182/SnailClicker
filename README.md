@@ -1,1 +1,1 @@
-# SnailClicker
+#SnailClicker
