@@ -1,6 +1,7 @@
 var snails = 0;
 var clickValue = 1;
 var autoClickers = 0;
+var superSnails = 0;
 var scoreDisplay = document.getElementById("scoreDisplay");
 var lastClickDisplay = document.getElementById("lastClick");
 var alertDisplay = document.getElementById("alerts");
@@ -51,4 +52,23 @@ function increaseClickValue() {
 		clickValue += buyHowMany;
 		displaySnails()
 	}
+}
+
+function addSuperSnail() {
+	let toTake = buyHowMany * 1000;
+	if (snails < toTake) {
+		alertNotEnoughSnails();
+	}
+	
+	else {
+		snails -= toTake;
+		superSnails += buyHowMany;
+		displaySnails()
+		setInterval(function(){ 
+			snails += toAdd;
+			displaySnails();
+		}, 100);
+	}
+	
+	let toAdd = superSnails * clickValue;
 }
