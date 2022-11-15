@@ -9,3 +9,15 @@ button {
 	background-color: black;
 	border: 2px #222 solid
 }
+
+.containers > * {
+	display: flex;
+}
+
+.left {
+	position: left;
+}
+
+.right {
+	position: right;
+}
