@@ -1,1 +1,121 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<link rel="stylesheet" href="assets/css/style.css">
+        <style>
+             {
+	background-color: #393939;
+	margin: 0;
+	padding: 0;
+	color: white;
+}
 
+button {
+	background-color: black;
+	border: 2px #222 solid
+}
+
+        </style>
+        <script>
+            var snails = 0;
+var clickValue = 1;
+var autoClickers = 0;
+var superSnails = 0;
+var scoreDisplay = document.getElementById("scoreDisplay");
+var lastClickDisplay = document.getElementById("lastClick");
+var alertDisplay = document.getElementById("alerts");
+var buyHowMany = 1;
+
+function alertNotEnoughSnails() {
+	alertDisplay.innerHTML = "Not Enough Snails";
+}
+
+function displaySnails() {
+	scoreDisplay.innerHTML = snails + " snails";
+	lastClickDisplay.innerHTML = clickValue + " snails per click";
+	console.log(snails);
+}
+
+function addSnails() {
+	snails += clickValue;
+	displaySnails();
+}
+
+function addAutoCliker() {
+	let toTake = buyHowMany * 100;
+	if (snails < toTake) {
+		alertNotEnoughSnails();
+	}
+	
+	else {
+		snails -= toTake;
+		autoClickers += buyHowMany;
+		displaySnails()
+		setInterval(function(){ 
+			snails += toAdd;
+			displaySnails();
+		}, 1000);
+	}
+	
+	let toAdd = autoClickers * clickValue;
+}
+
+function increaseClickValue() {
+	let toTake = buyHowMany * 100;
+	if (snails < toTake) {
+		alertNotEnoughSnails();
+	}
+	
+	else {
+		snails -= toTake;
+		clickValue += buyHowMany;
+		displaySnails()
+	}
+}
+
+function addSuperSnail() {
+	let toTake = buyHowMany * 1000;
+	if (snails < toTake) {
+		alertNotEnoughSnails();
+	}
+	
+	else {
+		snails -= toTake;
+		superSnails += buyHowMany;
+		displaySnails()
+		setInterval(function(){ 
+			snails += toAdd;
+			displaySnails();
+		}, 100);
+	}
+	
+	let toAdd = superSnails * clickValue;
+}
+
+        </script>
+	</head>
+	<body>
+		<img src="https://upload.wikimedia.org/wikipedia/commons/6/6d/Common_snail.jpg" alt="snail" class="snail" id="snail" onclick="addSnails()">
+		<p id="scoreDisplay">0</p>
+		<p id="lastClick">0</p>
+		<p id="alerts">None</p>
+		<script src="assets/js/main.js"></script>
+		<button onclick="addAutoCliker()">Buy AutoClicker</button>
+		<button onclick="addSuperSnail()">Add Super Snail</button>
+		<button onclick="increaseClickValue()">Incrase Click Value</button>
+		<br>
+		<button onclick="buyHowMany = 1">Buy 1 per Click</button>
+		<button onclick="buyHowMany = 5">Buy 5 per Click</button>
+		<button onclick="buyHowMany = 10">Buy 10 per Click</button>
+		<button onclick="buyHowMany = 100">Buy 100 per Click</button>
+		<button onclick="buyHowMany = 1000">Buy 1000 per Click</button>
+		<button onclick="buyHowMany = 1000000">Buy 1m per Click</button>
+		<button onclick="buyHowMany = 1000000000">Buy 1b per Click</button>
+		<button onclick="buyHowMany = 1000000000000">Buy 1t per Click</button>
+		<button onclick="buyHowMany = 1000000000000000">Buy 1qt per Click</button>
+		<button onclick="buyHowMany = 1000000000000000000">Buy 1qnt per Click</button>
+		<button onclick="buyHowMany = 100000000000000000000">Buy 100qnt per Click</button>
+		<p>Special thanks to my freinds Bella and Logan</p>
+		<p>Snail Image By macrophile on Flickr - Flickr. Originally described as &quot;proud snail after hopping the fence&quot;, CC BY 2.0, https://commons.wikimedia.org/w/index.php?curid=81761</p>
+	</body>
+</html>
